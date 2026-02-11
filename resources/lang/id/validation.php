@@ -72,7 +72,6 @@ return [
     ],
     'string' => ':attribute harus berupa teks.',
     'unique' => ':attribute sudah digunakan.',
-',
     'url' => ':attribute tidak valid.',
 
     'attributes' => [
