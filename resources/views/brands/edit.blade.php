@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="card mb-4">
         <div class="card-header">
-            <h5 class="mb-0">Edit Brand</h5>
+            <h5 class="mb-0">Edit Merek</h5>
         </div>
         <div class="card-body">
             <form action="{{ route('brands.update', $brand) }}" method="POST" enctype="multipart/form-data">
@@ -9,7 +9,7 @@
                 @method('PUT')
 
                 <div class="mb-3">
-                    <label class="form-label" for="name">Nama Brand</label>
+                    <label class="form-label" for="name">Nama Merek</label>
                     <input type="text" class="form-control" id="name" name="name"
                         value="{{ old('name', $brand->name) }}" required />
                     @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
@@ -33,7 +33,7 @@
                     @error('logo') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update Brand</button>
+                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 <a href="{{ route('brands.index') }}" class="btn btn-outline-secondary">Batal</a>
             </form>
         </div>

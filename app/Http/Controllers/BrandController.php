@@ -54,7 +54,7 @@ class BrandController extends Controller
             return response()->json($brand, 201);
         }
 
-        return redirect()->route('brands.index')->with('success', 'Brand created successfully.');
+        return redirect()->route('brands.index')->with('success', 'Merek berhasil ditambahkan.');
     }
 
     /**
@@ -96,7 +96,7 @@ class BrandController extends Controller
 
         $brand->update($validated);
 
-        return redirect()->route('brands.index')->with('success', 'Brand updated successfully.');
+        return redirect()->route('brands.index')->with('success', 'Merek berhasil diperbarui.');
     }
 
     /**
@@ -110,6 +110,6 @@ class BrandController extends Controller
 
         $brand->forceDelete();
 
-        return redirect()->route('brands.index')->with('success', 'Brand deleted successfully.');
+        return redirect()->route('brands.index')->with('success', 'Merek berhasil dihapus.');
     }
 }

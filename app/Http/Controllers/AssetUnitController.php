@@ -104,7 +104,7 @@ class AssetUnitController extends Controller
         }
 
         $unit->update(['status' => 'retired', 'notes' => ($unit->notes ?? '') . ' [Retired on ' . now()->format('d M Y') . ']']);
-        return back()->with('success', 'Unit berhasil di-retire.');
+        return back()->with('success', 'Unit berhasil didisposisi.');
     }
 
     public function maintenance(AssetUnit $unit)
@@ -114,7 +114,7 @@ class AssetUnitController extends Controller
         }
 
         $unit->update(['status' => 'maintenance']);
-        return back()->with('success', 'Unit masuk maintenance.');
+        return back()->with('success', 'Unit masuk perawatan.');
     }
 
     public function available(AssetUnit $unit)
@@ -124,10 +124,10 @@ class AssetUnitController extends Controller
         }
 
         if ($unit->status === 'borrowed') {
-            return back()->with('error', 'Unit sedang dipinjam. Kembalikan melalui peminjaman.');
+            return back()->with('error', 'Unit sedang dipakai. Kembalikan melalui pemakaian.');
         }
 
         $unit->update(['status' => 'available']);
-        return back()->with('success', 'Unit set available.');
+        return back()->with('success', 'Unit diset tersedia.');
     }
 }

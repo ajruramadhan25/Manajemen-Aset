@@ -25,10 +25,19 @@
                     <h4>{{ $asset->name }}</h4>
                     <p class="text-muted">{{ $asset->asset_code }}</p>
 
+                    @php
+                        $statusLabels = [
+                            'available' => 'Tersedia',
+                            'deployed' => 'Terpakai',
+                            'maintenance' => 'Perawatan',
+                            'broken' => 'Rusak',
+                        ];
+                    @endphp
+
                     <div class="d-flex justify-content-center gap-2 mb-3">
                         <span
                             class="badge bg-label-{{ $asset->status == 'available' ? 'success' : ($asset->status == 'deployed' ? 'primary' : 'warning') }}">
-                            {{ strtoupper($asset->status) }}
+                            {{ $statusLabels[$asset->status] ?? strtoupper($asset->status) }}
                         </span>
                         <span class="badge bg-label-info">{{ $asset->category->name }}</span>
                     </div>
@@ -44,7 +53,7 @@
 
                         @if($availableStock > 0)
                             <a href="{{ route('loans.create', $asset) }}" class="btn btn-primary">
-                                <i class="bx bx-export me-1"></i> Checkout (Pemakaian)
+                                <i class="bx bx-export me-1"></i> Ajukan Pemakaian
                             </a>
                         @else
                             <button type="button" class="btn btn-secondary" disabled>
@@ -62,8 +71,8 @@
                                             <form action="{{ route('loans.return', $loan) }}" method="POST" class="d-inline ms-2">
                                                 @csrf
                                                 <button type="submit" class="btn btn-xs btn-success" 
-                                                    onclick="return confirm('Return {{ $loan->quantity_borrowed }} unit untuk {{ $loan->user->name }}?')">
-                                                    Return
+                                                    onclick="return confirm('Kembalikan {{ $loan->quantity_borrowed }} unit untuk {{ $loan->user->name }}?')">
+                                                    Kembalikan
                                                 </button>
                                             </form>
                                         </small>
@@ -73,7 +82,7 @@
                         @endif
 
                         @if(in_array((Auth::user()->role ?? 'karyawan'), ['admin', 'super_admin'], true))
-                            <a href="{{ route('assets.edit', $asset) }}" class="btn btn-outline-secondary">Edit Asset</a>
+                            <a href="{{ route('assets.edit', $asset) }}" class="btn btn-outline-secondary">Edit Aset</a>
                         @endif
                     </div>
                 </div>

@@ -1,14 +1,14 @@
 <x-app-layout>
     <div class="card mb-4">
         <div class="card-header">
-            <h5 class="mb-0">Tambah Brand Baru</h5>
+            <h5 class="mb-0">Tambah Merek Baru</h5>
         </div>
         <div class="card-body">
             <form action="{{ route('brands.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
-                    <label class="form-label" for="name">Nama Brand</label>
+                    <label class="form-label" for="name">Nama Merek</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="contoh: ASUS"
                         value="{{ old('name') }}" required />
                     @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
@@ -17,7 +17,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="description">Deskripsi</label>
                     <textarea class="form-control" id="description" name="description" rows="4"
-                        placeholder="Deskripsi brand...">{{ old('description') }}</textarea>
+                        placeholder="Deskripsi merek...">{{ old('description') }}</textarea>
                     @error('description') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
 
@@ -27,7 +27,7 @@
                     @error('logo') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Simpan Brand</button>
+                <button type="submit" class="btn btn-primary">Simpan Merek</button>
                 <a href="{{ route('brands.index') }}" class="btn btn-outline-secondary">Batal</a>
             </form>
         </div>

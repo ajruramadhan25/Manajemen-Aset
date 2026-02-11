@@ -59,10 +59,10 @@
                                 <td>
                                     <a href="{{ route('loans.show', $loan) }}" class="btn btn-sm btn-info">Detail</a>
                                     @if($loan->status == 'borrowed')
-                                        <a href="{{ route('loans.return.units.form', $loan) }}" class="btn btn-sm btn-outline-primary ms-1">Return Units</a>
+                                        <a href="{{ route('loans.return.units.form', $loan) }}" class="btn btn-sm btn-outline-primary ms-1">Kembalikan Unit</a>
                                         <form action="{{ route('loans.return', $loan) }}" method="POST" class="d-inline ms-1">
                                             @csrf
-                                            <button class="btn btn-sm btn-danger" onclick="return confirm('Return seluruh pemakaian?')">Return All</button>
+                                            <button class="btn btn-sm btn-danger" onclick="return confirm('Kembalikan seluruh pemakaian?')">Kembalikan Semua</button>
                                         </form>
                                     @endif
                                 </td>

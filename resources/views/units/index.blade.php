@@ -13,6 +13,14 @@
             </div>
         </div>
         <div class="card-body">
+            @php
+                $statusLabels = [
+                    'available' => 'Tersedia',
+                    'borrowed' => 'Dipakai',
+                    'maintenance' => 'Perawatan',
+                    'retired' => 'Disposisi',
+                ];
+            @endphp
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -32,7 +40,7 @@
                                 <td><strong>{{ $unit->unique_identifier ?? '-' }}</strong></td>
                                 <td>
                                     <span class="badge bg-label-{{ $unit->status == 'available' ? 'success' : ($unit->status == 'retired' ? 'danger' : ($unit->status == 'maintenance' ? 'warning' : 'secondary')) }}">
-                                        {{ ucfirst($unit->status) }}
+                                        {{ $statusLabels[$unit->status] ?? ucfirst($unit->status) }}
                                     </span>
                                 </td>
                                 <td>
@@ -40,19 +48,19 @@
                                         @if($unit->status !== 'available' && $unit->status !== 'borrowed')
                                             <form action="{{ route('units.available', $unit) }}" method="POST" class="d-inline">
                                                 @csrf
-                                                <button class="btn btn-outline-success btn-sm" title="Set Available">Available</button>
+                                                <button class="btn btn-outline-success btn-sm" title="Set Tersedia">Tersedia</button>
                                             </form>
                                         @endif
                                         @if($unit->status !== 'maintenance')
                                             <form action="{{ route('units.maintenance', $unit) }}" method="POST" class="d-inline">
                                                 @csrf
-                                                <button class="btn btn-outline-warning btn-sm" title="Set Maintenance">Maintenance</button>
+                                                <button class="btn btn-outline-warning btn-sm" title="Set Perawatan">Perawatan</button>
                                             </form>
                                         @endif
                                         @if($unit->status !== 'retired')
                                             <form action="{{ route('units.retire', $unit) }}" method="POST" class="d-inline">
                                                 @csrf
-                                                <button class="btn btn-outline-danger btn-sm" title="Retire">Retire</button>
+                                                <button class="btn btn-outline-danger btn-sm" title="Disposisi">Disposisi</button>
                                             </form>
                                         @endif
                                         <a href="{{ route('units.edit', $unit) }}" class="btn btn-outline-secondary btn-sm">Edit</a>

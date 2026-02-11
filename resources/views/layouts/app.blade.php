@@ -87,7 +87,7 @@
           @endif
 
           <!-- Asset Management -->
-          <li class="menu-header small text-uppercase"><span class="menu-header-text">Assets</span></li>
+          <li class="menu-header small text-uppercase"><span class="menu-header-text">Aset</span></li>
           @if(in_array((Auth::user()->role ?? 'karyawan'), ['admin', 'super_admin'], true))
             <li class="menu-item {{ request()->routeIs('categories.*') ? 'active' : '' }}">
               <a href="{{ route('categories.index') }}" class="menu-link">
@@ -98,7 +98,7 @@
             <li class="menu-item {{ request()->routeIs('brands.*') ? 'active' : '' }}">
               <a href="{{ route('brands.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-tag"></i>
-                <div data-i18n="Brands">Brand</div>
+                <div data-i18n="Brands">Merek</div>
               </a>
             </li>
           @endif
@@ -158,8 +158,8 @@
             <div class="navbar-nav align-items-center">
               <div class="nav-item d-flex align-items-center">
                 <i class="bx bx-search fs-4 lh-0"></i>
-                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
-                  aria-label="Search..." />
+                <input type="text" class="form-control border-0 shadow-none" placeholder="Cari..."
+                  aria-label="Cari" />
               </div>
             </div>
             <!-- /Search -->
@@ -198,7 +198,7 @@
                       <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); this.closest('form').submit();">
                         <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
+                        <span class="align-middle">Keluar</span>
                       </a>
                     </form>
                   </li>

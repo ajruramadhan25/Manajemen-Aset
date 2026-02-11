@@ -55,10 +55,10 @@
 
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <label class="form-label" for="brand_id">Brand (Opsional)</label>
+                        <label class="form-label" for="brand_id">Merek (Opsional)</label>
                         <div class="input-group">
                             <select id="brand_id" name="brand_id" class="form-select">
-                                <option value="">Pilih Brand</option>
+                                <option value="">Pilih Merek</option>
                                 @foreach($brands as $brand)
                                     <option value="{{ $brand->id }}" {{ old('brand_id') == $brand->id ? 'selected' : '' }}>{{ $brand->name }}</option>
                                 @endforeach
@@ -87,12 +87,10 @@
                     <div class="col-md-6">
                         <label class="form-label" for="status">Status</label>
                         <select id="status" name="status" class="form-select" required>
-                            <option value="available" {{ old('status') == 'available' ? 'selected' : '' }}>Available
-                            </option>
-                            <option value="deployed" {{ old('status') == 'deployed' ? 'selected' : '' }}>Deployed</option>
-                            <option value="maintenance" {{ old('status') == 'maintenance' ? 'selected' : '' }}>Maintenance
-                            </option>
-                            <option value="broken" {{ old('status') == 'broken' ? 'selected' : '' }}>Broken</option>
+                            <option value="available" {{ old('status') == 'available' ? 'selected' : '' }}>Tersedia</option>
+                            <option value="deployed" {{ old('status') == 'deployed' ? 'selected' : '' }}>Terpakai</option>
+                            <option value="maintenance" {{ old('status') == 'maintenance' ? 'selected' : '' }}>Perawatan</option>
+                            <option value="broken" {{ old('status') == 'broken' ? 'selected' : '' }}>Rusak</option>
                         </select>
                         @error('status') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
@@ -209,28 +207,28 @@
         quantityInput.addEventListener('input', renderUnitFields);
     </script>
 
-    <!-- Modal Tambah Brand -->
+    <!-- Modal Tambah Merek -->
     <div class="modal fade" id="addBrandModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah Brand Baru</h5>
+                    <h5 class="modal-title">Tambah Merek Baru</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label" for="newBrandName">Nama Brand</label>
+                        <label class="form-label" for="newBrandName">Nama Merek</label>
                         <input type="text" class="form-control" id="newBrandName" placeholder="contoh: Samsung">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="newBrandDesc">Deskripsi</label>
-                        <textarea class="form-control" id="newBrandDesc" rows="3" placeholder="Deskripsi brand..."></textarea>
+                        <textarea class="form-control" id="newBrandDesc" rows="3" placeholder="Deskripsi merek..."></textarea>
                     </div>
                     <div id="brandErrorMsg" class="alert alert-danger d-none"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" id="createBrandBtn">Simpan Brand</button>
+                    <button type="button" class="btn btn-primary" id="createBrandBtn">Simpan Merek</button>
                 </div>
             </div>
         </div>
@@ -243,7 +241,7 @@
             const errorMsg = document.getElementById('brandErrorMsg');
 
             if (!name) {
-                errorMsg.textContent = 'Nama brand harus diisi';
+                errorMsg.textContent = 'Nama merek harus diisi';
                 errorMsg.classList.remove('d-none');
                 return;
             }

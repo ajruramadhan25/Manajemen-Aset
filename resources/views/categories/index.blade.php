@@ -38,14 +38,14 @@
                         <th>Tipe</th>
                         <th>Jumlah Aset</th>
                         <th>Tanggal Dibuat</th>
-                        <th>Actions</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @forelse ($categories as $category)
                         <tr>
                             <td><strong>{{ $category->name }}</strong></td>
-                            <td><span class="badge bg-label-info">Parent</span></td>
+                            <td><span class="badge bg-label-info">Utama</span></td>
                             <td><span class="badge bg-label-primary">{{ $category->getTotalAssetCount() }} Aset</span></td>
                             <td>{{ $category->created_at->format('d M Y') }}</td>
                             <td>
@@ -58,7 +58,7 @@
                                         class="delete-form" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-icon btn-outline-danger" title="Delete">
+                                        <button type="submit" class="btn btn-icon btn-outline-danger" title="Hapus">
                                             <i class="bx bx-trash"></i>
                                         </button>
                                     </form>
@@ -82,7 +82,7 @@
                                                 class="delete-form" style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-icon btn-outline-danger" title="Delete">
+                                                <button type="submit" class="btn btn-icon btn-outline-danger" title="Hapus">
                                                     <i class="bx bx-trash"></i>
                                                 </button>
                                             </form>

@@ -87,7 +87,7 @@ class AssetController extends Controller
             }
         }
 
-        return redirect()->route('assets.index')->with('success', 'Asset created successfully.');
+        return redirect()->route('assets.index')->with('success', 'Aset berhasil ditambahkan.');
     }
 
     /**
@@ -179,7 +179,7 @@ class AssetController extends Controller
             }
         }
 
-        return redirect()->route('assets.index')->with('success', 'Asset updated successfully.');
+        return redirect()->route('assets.index')->with('success', 'Aset berhasil diperbarui.');
     }
 
     /**
@@ -193,6 +193,6 @@ class AssetController extends Controller
 
         $asset->forceDelete();
 
-        return redirect()->route('assets.index')->with('success', 'Asset deleted successfully.');
+        return redirect()->route('assets.index')->with('success', 'Aset berhasil dihapus.');
     }
 }

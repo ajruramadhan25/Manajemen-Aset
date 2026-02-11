@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Checkout Aset (Pemakaian)</h5>
+            <h5 class="mb-0">Pengajuan Pemakaian Aset</h5>
         </div>
         <div class="card-body">
             <div class="mb-4">

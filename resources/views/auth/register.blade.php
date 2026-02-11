@@ -17,14 +17,14 @@
             <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama"
                         autofocus value="{{ old('name') }}" required />
                     @error('name') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email"
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email"
                         value="{{ old('email') }}" required />
                     @error('email') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="mb-3 form-password-toggle">
-                    <label class="form-label" for="password_confirmation">Confirm Password</label>
+                    <label class="form-label" for="password_confirmation">Konfirmasi Password</label>
                     <div class="input-group input-group-merge">
                         <input type="password" id="password_confirmation" class="form-control"
                             name="password_confirmation"
@@ -54,8 +54,8 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
                         <label class="form-check-label" for="terms-conditions">
-                            I agree to
-                            <a href="javascript:void(0);">privacy policy & terms</a>
+                            Saya setuju dengan
+                            <a href="javascript:void(0);">kebijakan privasi & ketentuan</a>
                         </label>
                     </div>
                 </div>

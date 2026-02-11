@@ -36,9 +36,9 @@
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label">Brand</label>
+                    <label class="form-label">Merek</label>
                     <select name="brand_id" class="form-select">
-                        <option value="">Semua Brand</option>
+                        <option value="">Semua Merek</option>
                         @foreach($brands as $brand)
                             <option value="{{ $brand->id }}" {{ request('brand_id') == $brand->id ? 'selected' : '' }}>
                                 {{ $brand->name }}
@@ -71,7 +71,7 @@
                         <th>Jumlah</th>
                         <th>Harga Satuan</th>
                         <th>Harga Total</th>
-                        <th>Actions</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
@@ -93,8 +93,14 @@
                                         'broken' => 'danger',
                                     ];
                                     $color = $statusColors[$asset->status] ?? 'secondary';
+                                    $statusLabels = [
+                                        'available' => 'Tersedia',
+                                        'deployed' => 'Terpakai',
+                                        'maintenance' => 'Perawatan',
+                                        'broken' => 'Rusak',
+                                    ];
                                 @endphp
-                                <span class="badge bg-label-{{ $color }} me-1">{{ strtoupper($asset->status) }}</span>
+                                <span class="badge bg-label-{{ $color }} me-1">{{ $statusLabels[$asset->status] ?? strtoupper($asset->status) }}</span>
                             </td>
                             <td>
                                 @php
@@ -123,7 +129,7 @@
                                         <form action="{{ route('assets.destroy', $asset) }}" method="POST" class="delete-form">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-icon btn-outline-danger" title="Delete">
+                                            <button type="submit" class="btn btn-icon btn-outline-danger" title="Hapus">
                                                 <i class="bx bx-trash"></i>
                                             </button>
                                         </form>

@@ -7,7 +7,7 @@
                 @if($loan->status == 'borrowed')
                     <form action="{{ route('loans.return', $loan) }}" method="POST" class="d-inline">
                         @csrf
-                        <button class="btn btn-danger" onclick="return confirm('Return seluruh pemakaian?')">Return All</button>
+                        <button class="btn btn-danger" onclick="return confirm('Kembalikan seluruh pemakaian?')">Kembalikan Semua</button>
                     </form>
                 @endif
             </div>

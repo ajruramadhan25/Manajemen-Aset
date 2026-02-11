@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Brand: {{ $brand->name }}</h5>
+            <h5 class="mb-0">Merek: {{ $brand->name }}</h5>
             <a href="{{ route('brands.index') }}" class="btn btn-outline-primary">Kembali</a>
         </div>
         <div class="card-body">
             <p><strong>Deskripsi:</strong> {{ $brand->description ?? '-' }}</p>
 
-            <h6 class="mt-4">Aset pada brand ini</h6>
+            <h6 class="mt-4">Aset pada merek ini</h6>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -32,7 +32,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="text-center text-muted">Tidak ada aset untuk brand ini</td>
+                                <td colspan="5" class="text-center text-muted">Tidak ada aset untuk merek ini</td>
                             </tr>
                         @endforelse
                     </tbody>

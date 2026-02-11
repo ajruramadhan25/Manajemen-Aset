@@ -22,10 +22,10 @@
                 <div class="mb-3">
                     <label class="form-label">Status</label>
                     <select name="status" class="form-select">
-                        <option value="available" {{ $unit->status == 'available' ? 'selected' : '' }}>Available</option>
-                        <option value="borrowed" {{ $unit->status == 'borrowed' ? 'selected' : '' }}>Borrowed</option>
-                        <option value="maintenance" {{ $unit->status == 'maintenance' ? 'selected' : '' }}>Maintenance</option>
-                        <option value="retired" {{ $unit->status == 'retired' ? 'selected' : '' }}>Retired</option>
+                        <option value="available" {{ $unit->status == 'available' ? 'selected' : '' }}>Tersedia</option>
+                        <option value="borrowed" {{ $unit->status == 'borrowed' ? 'selected' : '' }}>Dipakai</option>
+                        <option value="maintenance" {{ $unit->status == 'maintenance' ? 'selected' : '' }}>Perawatan</option>
+                        <option value="retired" {{ $unit->status == 'retired' ? 'selected' : '' }}>Disposisi</option>
                     </select>
                 </div>
                 <div class="mb-3">

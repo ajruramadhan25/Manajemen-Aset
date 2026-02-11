@@ -214,7 +214,7 @@ class AssetLoanController extends Controller
                 }
             }
             $this->loanService->checkout($asset, $user, $request->quantity_borrowed, $request->notes, $unitIds);
-            return redirect()->route('assets.show', $asset)->with('success', 'Aset berhasil dipinjamkan.');
+            return redirect()->route('assets.show', $asset)->with('success', 'Pemakaian aset berhasil dibuat.');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

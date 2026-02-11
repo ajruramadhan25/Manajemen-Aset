@@ -28,7 +28,7 @@ class AssetLoanService
     public function checkout(Asset $asset, User $user, int $quantityBorrowed = 1, string $notes = null, array $unitIds = null): AssetLoan
     {
         if ($quantityBorrowed < 1) {
-            throw new Exception("Quantity must be at least 1.");
+            throw new Exception('Jumlah minimal adalah 1.');
         }
 
         // Calculate available stock (total quantity - borrowed quantity)
@@ -39,7 +39,7 @@ class AssetLoanService
         $availableStock = $asset->quantity - $totalBorrowed;
 
         if ($availableStock < $quantityBorrowed) {
-            throw new Exception("Insufficient stock. Available: {$availableStock}, Requested: {$quantityBorrowed}");
+            throw new Exception("Stok tidak mencukupi. Tersedia: {$availableStock}, Diminta: {$quantityBorrowed}");
         }
 
         return DB::transaction(function () use ($asset, $user, $quantityBorrowed, $notes, $unitIds) {
@@ -58,13 +58,13 @@ class AssetLoanService
             if (!empty($unitIds)) {
                 $unitCount = count($unitIds);
                 if ($unitCount !== $quantityBorrowed) {
-                    throw new Exception("Number of selected units ({$unitCount}) must equal quantity requested ({$quantityBorrowed}).");
+                    throw new Exception("Jumlah unit dipilih ({$unitCount}) harus sama dengan jumlah diminta ({$quantityBorrowed}).");
                 }
 
                 // Fetch units and ensure availability
                 $units = AssetUnit::whereIn('id', $unitIds)->where('asset_id', $asset->id)->where('status', 'available')->lockForUpdate()->get();
                 if ($units->count() !== $unitCount) {
-                    throw new Exception('One or more selected units are not available.');
+                    throw new Exception('Satu atau lebih unit yang dipilih tidak tersedia.');
                 }
 
                 foreach ($units as $unit) {
@@ -102,7 +102,7 @@ class AssetLoanService
     public function checkin(AssetLoan $loan): void
     {
         if ($loan->status !== 'borrowed') {
-            throw new Exception("This loan is already returned.");
+            throw new Exception('Pemakaian ini sudah dikembalikan.');
         }
 
         DB::transaction(function () use ($loan) {

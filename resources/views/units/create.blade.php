@@ -22,10 +22,10 @@
                 <div class="mb-3">
                     <label class="form-label">Status</label>
                     <select name="status" class="form-select">
-                        <option value="available">Available</option>
-                        <option value="borrowed">Borrowed</option>
-                        <option value="maintenance">Maintenance</option>
-                        <option value="retired">Retired</option>
+                        <option value="available">Tersedia</option>
+                        <option value="borrowed">Dipakai</option>
+                        <option value="maintenance">Perawatan</option>
+                        <option value="retired">Disposisi</option>
                     </select>
                 </div>
                 <div class="mb-3">

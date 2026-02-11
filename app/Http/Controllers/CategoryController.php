@@ -76,7 +76,7 @@ class CategoryController extends Controller
         }
 
         if ($category->children()->exists()) {
-            return back()->with('error', 'Kategori tidak dapat dihapus karena memiliki subcategory.');
+            return back()->with('error', 'Kategori tidak dapat dihapus karena memiliki subkategori.');
         }
 
         $category->forceDelete();
