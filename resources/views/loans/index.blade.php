@@ -1,16 +1,22 @@
 <x-app-layout>
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
             <h5 class="mb-0">Daftar Pemakaian Aset</h5>
-            <form method="GET" action="{{ route('loans.index') }}" class="d-flex align-items-center">
-                <input type="search" name="search" value="{{ request('search') }}" class="form-control form-control-sm me-2" placeholder="Cari aset/pengguna/unit...">
-                <div class="me-2">
-                    <input type="date" name="date_from" class="form-control form-control-sm" value="{{ request('date_from') }}" placeholder="From">
+            <form method="GET" action="{{ route('loans.index') }}" class="w-100 w-md-auto">
+                <div class="row g-2 align-items-center">
+                    <div class="col-12 col-md-5">
+                        <input type="search" name="search" value="{{ request('search') }}" class="form-control form-control-sm" placeholder="Cari aset/pengguna/unit...">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <input type="date" name="date_from" class="form-control form-control-sm" value="{{ request('date_from') }}" placeholder="Dari">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <input type="date" name="date_to" class="form-control form-control-sm" value="{{ request('date_to') }}" placeholder="Sampai">
+                    </div>
+                    <div class="col-12 col-md-1 d-grid">
+                        <button class="btn btn-sm btn-outline-secondary" type="submit">Filter</button>
+                    </div>
                 </div>
-                <div class="me-2">
-                    <input type="date" name="date_to" class="form-control form-control-sm" value="{{ request('date_to') }}" placeholder="To">
-                </div>
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Filter</button>
             </form>
         </div>
         <div class="card-body">

@@ -1,11 +1,13 @@
 <x-app-layout>
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
             <h5 class="mb-0">Daftar Brand</h5>
-            <div class="d-flex gap-2">
-                <form action="{{ route('brands.index') }}" method="GET" class="d-flex">
-                    <input type="text" name="search" class="form-control me-2" placeholder="Cari brand..." value="{{ request('search') }}">
-                    <button type="submit" class="btn btn-outline-primary"><i class="bx bx-search"></i></button>
+            <div class="d-flex flex-column flex-md-row w-100 w-md-auto gap-2">
+                <form action="{{ route('brands.index') }}" method="GET" class="w-100 w-md-auto">
+                    <div class="d-flex gap-2">
+                        <input type="text" name="search" class="form-control" placeholder="Cari brand..." value="{{ request('search') }}">
+                        <button type="submit" class="btn btn-outline-primary"><i class="bx bx-search"></i></button>
+                    </div>
                 </form>
                 <a href="{{ route('brands.create') }}" class="btn btn-primary btn-sm">
                     <i class="bx bx-plus"></i> Tambah Brand

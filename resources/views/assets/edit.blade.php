@@ -80,7 +80,7 @@
                     <div class="col-md-6">
                         <label class="form-label" for="purchase_date">Tanggal Pembelian</label>
                         <input type="date" class="form-control" id="purchase_date" name="purchase_date"
-                            value="{{ old('purchase_date', $asset->purchase_date ?? date('Y-m-d')) }}" required />
+                            value="{{ old('purchase_date', optional($asset->purchase_date)->format('Y-m-d')) }}" required />
                         @error('purchase_date') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
                 </div>

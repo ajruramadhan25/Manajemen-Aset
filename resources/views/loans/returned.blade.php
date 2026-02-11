@@ -1,13 +1,23 @@
 <x-app-layout>
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
             <h5 class="mb-0">Riwayat Pengembalian</h5>
-            <div class="d-flex">
-                <form method="GET" action="{{ route('loans.returned') }}" class="d-flex me-2">
-                    <input type="search" name="search" value="{{ request('search') }}" class="form-control form-control-sm me-1" placeholder="Cari aset/pengguna/unit...">
-                    <input type="date" name="date_from" class="form-control form-control-sm me-1" value="{{ request('date_from') }}">
-                    <input type="date" name="date_to" class="form-control form-control-sm me-1" value="{{ request('date_to') }}">
-                    <button class="btn btn-sm btn-outline-secondary" type="submit">Filter</button>
+            <div class="d-flex flex-column flex-md-row w-100 w-md-auto gap-2">
+                <form method="GET" action="{{ route('loans.returned') }}" class="w-100 w-md-auto">
+                    <div class="row g-2 align-items-center">
+                        <div class="col-12 col-md-5">
+                            <input type="search" name="search" value="{{ request('search') }}" class="form-control form-control-sm" placeholder="Cari aset/pengguna/unit...">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <input type="date" name="date_from" class="form-control form-control-sm" value="{{ request('date_from') }}">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <input type="date" name="date_to" class="form-control form-control-sm" value="{{ request('date_to') }}">
+                        </div>
+                        <div class="col-12 col-md-1 d-grid">
+                            <button class="btn btn-sm btn-outline-secondary" type="submit">Filter</button>
+                        </div>
+                    </div>
                 </form>
                 <a href="{{ route('loans.index') }}" class="btn btn-outline-primary">Kembali ke Pemakaian Aset</a>
             </div>
